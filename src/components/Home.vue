@@ -46,7 +46,7 @@
 export default {
     created() {
         this.getMenuList()
-        //this.activePath = window.sessionStorage.getItem('activePath')
+        this.activePath = window.sessionStorage.getItem('activePath')
     },
     data() {
         return {
@@ -75,7 +75,7 @@ export default {
         },
         // 保存连接的激活状态
         saveNavState(path){
-            //window.sessionStorage.setItem('activePath',path)
+            window.sessionStorage.setItem('activePath',path)
             this.activePath = path
         }
     }
