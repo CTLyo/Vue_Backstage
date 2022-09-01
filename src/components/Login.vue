@@ -1,4 +1,5 @@
 <template>
+    
   <div class="login_container">
     <div class="login_box">
         <div class="avatar_box">
@@ -21,8 +22,11 @@
                 <el-button type="primary" @click="login">登录</el-button>
                 <el-button type="info" @click="resetForm">重置</el-button>
                 </el-form-item>
-            </el-form>
-            
+            </el-form>   
+    </div>
+    <div class="anamtion">
+        <div class="mountain"></div>
+        <div class="bear"></div>
     </div>
   </div>
 </template>
@@ -78,8 +82,9 @@ export default {
     background-color: #fff;
     border-radius: 3px;
     position: absolute;
+    z-index: 999;
     left: 50%;
-    top:50%;
+    top:35%;
     transform: translate(-50%,-50%);
 
     .avatar_box{
@@ -111,5 +116,54 @@ export default {
 .btns{
     display: flex;
     justify-content: flex-end;
+}
+.anamtion{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background-color: #cce5ff;
+}
+.mountain{
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: -470px;
+    background: url(@/assets/山.png) repeat-x ;
+    background-position: left;
+    animation: moun 20s linear infinite;
+}
+.bear{
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    bottom: 10%;
+    background: url(@/assets/熊.png) no-repeat;
+    animation: bear 0.5s steps(8) infinite,bearCam 2s forwards;
+}
+@keyframes moun{
+    0%{
+        background-position: 0 200px;
+    }
+    100%{
+        background-position: -3840px 200px;
+    }
+}
+@keyframes bear{
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: -1600px 0;
+    }
+}
+@keyframes bearCam{
+    0%{
+        left: 0;
+    }
+    100%{
+        left: 50%;
+        transform: translateX(-100px);
+    }
 }
 </style>
